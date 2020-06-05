@@ -1,0 +1,24 @@
+/* Stylesheet for Assignment 7 - Calculate MPG */
+
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
+
+/* set some global attributes */
+body {
+    margin: 2em;
+    padding: 0;
+    background-color: #0f4f65;
+    color: #dcc23e;
+    font-family: 'Chelsea Market', cursive;
+    box-sizing: border-box;
+}
+
+/* format form elements */
+input, label {
+    display: block; /* default is inline */
+    margin: 0.5em;
+}
+
+/* target the button with an input type without creating an id */
+input[type=submit] {
+    margin-top: 1em;
+}
