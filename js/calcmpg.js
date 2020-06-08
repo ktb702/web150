@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////
-// Author: Kate Baldwin                                           //
-// Created: 06/02/2020                                             //
+// Author: Kate Baldwin                                         //
+// Created: 06/02/2020                                          //
 // Course: Web150 - Assignment7                                 //  
 // Desc: This script creates a miles per gallon calculator.     //
 //                                                              //
@@ -19,20 +19,24 @@ function calcmpg(event) {
     var miles_input = mpgform.querySelector('#miles').value;
     var gallons_input = mpgform.querySelector('#gallons').value;
 
-    //calc mpg
-    var mpg = miles_input / gallons_input;
+    //form validation - if either input is not a number, alert the user and reset the form
+    if (isNaN(miles_input)|| isNaN(gallons_input)){
+        alert("Both entries must be numeric");   
+        mpgform.reset(); //clear entries so that the user has a empty form to re-enter data
+    }
+    else{
+        //calc mpg
+        var mpg = miles_input / gallons_input;
 
-    //change the value of mpg on the form
-    var mpg_output = mpgform.querySelector('#mpg');
-    mpg_output.value = mpg;
-
-    //can use this instead of event.target above
-    // var miles = this.miles;
-    // var mpg = this.miles / this.gallons;
+        //change the value of mpg on the form
+        var mpg_output = mpgform.querySelector('#mpg');
+        mpg_output.value = mpg.toFixed(1); //round to one decimal place
+    }
 }
 
 //when the user clicks on submit button, call the function to calculate MPG.
 //event listener must come after the function that it calls. 
-mpgform.addEventListener('submit', calcmpg);
+window.onload = function() {
+    mpgform.addEventListener('submit', calcmpg);
+};
 
-//form validation goes here
